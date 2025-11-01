@@ -126,3 +126,42 @@ body,
     @apply bg-background text-foreground;
   }
 }
+
+/* verification css 적용 */
+/* 컨테이너 */
+.verification-container {
+  display: flex; /* flex */
+  gap: 0.5rem; /* gap-x-2 */
+}
+
+/* 기본 문자 박스 */
+.verification-character {
+  text-transform: uppercase; /* uppercase */
+  height: auto; /* h-auto */
+  border-radius: 0.375rem; /* rounded-md */
+  border: 1px solid #d1d5db; /* border border-gray-300 */
+  display: flex; /* flex */
+  align-items: center; /* items-center */
+  justify-content: center; /* justify-center */
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 500; /* font-medium */
+  color: #6b7280; /* text-gray-500 */
+  background-color: white; /* 기본 배경 */
+}
+
+/* 비활성 상태 */
+.verification-inactive {
+  background-color: #f5f5f5; /* bg-muted 대체 */
+}
+
+/* 선택 상태 */
+.verification-selected {
+  background-color: white; /* bg-white */
+  color: black; /* text-black */
+}
+
+/* 채움 상태 */
+.verification-filled {
+  background-color: white; /* bg-white */
+  color: black; /* text-black */
+}

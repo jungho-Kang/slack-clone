@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { useState } from "react";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";

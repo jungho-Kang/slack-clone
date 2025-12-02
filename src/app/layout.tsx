@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { ConvexClientProvider } from "@/components/convex-client-provider";
 
 import "./globals.css";
+import { NuqsProvider } from "@/components/nuqs-provider";
 import { JotaiProvider } from "@/components/jotai-provider";
 
 const geistSans = Geist({
@@ -37,9 +38,11 @@ export default function RootLayout({
         >
           <ConvexClientProvider>
             <JotaiProvider>
-              <Toaster />
-              <Modals />
-              {children}
+              <NuqsProvider>
+                <Toaster />
+                <Modals />
+                {children}
+              </NuqsProvider>
             </JotaiProvider>
           </ConvexClientProvider>
         </body>

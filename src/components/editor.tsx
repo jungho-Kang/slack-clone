@@ -116,6 +116,26 @@ const Editor = ({
     quill.setContents(defaultValueRef.current);
     setText(quill.getText());
 
+    // GPT로 수정한 코드 (한글 입력 시 placeholder가 남아있는 버그수정)
+    const editorEl = quill.root;
+
+    // 한글/IME 입력 시작
+    editorEl.addEventListener("compositionstart", () => {
+      editorEl.classList.remove("ql-blank");
+    });
+
+    // 한글/IME 입력 종료
+    editorEl.addEventListener("compositionend", () => {
+      const text = editorEl.innerText.replace(/\n/g, "").trim();
+      if (text.length === 0) {
+        editorEl.classList.add("ql-blank");
+      } else {
+        editorEl.classList.remove("ql-blank");
+      }
+    });
+
+    // 기존 코드
+    // 위에 있는 GPT 수정코드(119~135줄)를 붙이면 정상적으로 작동함
     quill.on(Quill.events.TEXT_CHANGE, () => {
       setText(quill.getText());
     });

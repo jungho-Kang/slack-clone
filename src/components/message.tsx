@@ -14,6 +14,7 @@ import { Hint } from "./hint";
 import { Toolbar } from "./toolbar";
 import { Thumbnail } from "./thumbnail";
 import { Reactions } from "./reactions";
+import { ThreadBar } from "./thread-bar";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 import { Doc, Id } from "../../convex/_generated/dataModel";
@@ -43,6 +44,7 @@ interface MessageProps {
   hideThreadButton?: boolean;
   threadCount?: number;
   threadImage?: string;
+  threadName?: string;
   threadTimestamp?: number;
 }
 
@@ -67,6 +69,7 @@ export const Message = ({
   hideThreadButton,
   threadCount,
   threadImage,
+  threadName,
   threadTimestamp,
 }: MessageProps) => {
   const { parentMessageId, onOpenMessage, onClose } = usePanel();
@@ -171,6 +174,13 @@ export const Message = ({
                   </span>
                 ) : null}
                 <Reactions data={reactions} onChange={handleReaction} />
+                <ThreadBar
+                  count={threadCount}
+                  image={threadImage}
+                  name={threadName}
+                  timestamp={threadTimestamp}
+                  onClick={() => onOpenMessage(id)}
+                />
               </div>
             )}
           </div>
@@ -205,7 +215,7 @@ export const Message = ({
       >
         <div className="flex items-start gap-2">
           <button>
-            <Avatar className="mr-1.5">
+            <Avatar>
               <AvatarImage src={authorImage} />
               <AvatarFallback>{avatarFallback}</AvatarFallback>
             </Avatar>
@@ -242,6 +252,13 @@ export const Message = ({
                 <span className="text-xs text-muted-foreground">(edited)</span>
               ) : null}
               <Reactions data={reactions} onChange={handleReaction} />
+              <ThreadBar
+                count={threadCount}
+                image={threadImage}
+                name={threadName}
+                timestamp={threadTimestamp}
+                onClick={() => onOpenMessage(id)}
+              />
             </div>
           )}
         </div>

@@ -71,7 +71,6 @@ export const Profile = ({ memberId, onClose }: ProfileProps) => {
       { id: memberId },
       {
         onSuccess: () => {
-          router.replace("/");
           toast.success("Member removed");
           onClose();
         },
@@ -91,6 +90,7 @@ export const Profile = ({ memberId, onClose }: ProfileProps) => {
       { id: memberId },
       {
         onSuccess: () => {
+          router.replace("/");
           toast.success("You left the workspace");
           onClose();
         },

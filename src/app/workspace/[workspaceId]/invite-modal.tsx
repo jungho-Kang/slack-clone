@@ -30,8 +30,8 @@ export const InviteModal = ({
 }: InviteModalProps) => {
   const workspaceId = useWorkspaceId();
   const [ConfirmDialog, confirm] = useConfirm(
-    "Are you sure?",
-    "This will deactivate the current code and generate a new one."
+    "새 코드를 생성하시겠습니까?",
+    "기존 코드는 비활성화되고 새 코드가 생성됩니다."
   );
 
   const { mutate, isPending } = useNewJoinCode();
@@ -45,10 +45,10 @@ export const InviteModal = ({
       { workspaceId },
       {
         onSuccess: () => {
-          toast.success("Invite code regenerated");
+          toast.success("초대 코드가 새로 생성되었습니다.");
         },
         onError: () => {
-          toast.error("Failed to regenerate invite code");
+          toast.error("초대 코드 생성에 실패했습니다.");
         },
       }
     );
@@ -59,7 +59,7 @@ export const InviteModal = ({
 
     navigator.clipboard
       .writeText(inviteLink)
-      .then(() => toast.success("Invite link copied to clipboard"));
+      .then(() => toast.success("초대 링크가 클립보드에 복사되었습니다."));
   };
 
   return (
@@ -68,9 +68,9 @@ export const InviteModal = ({
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Invite people to {name}</DialogTitle>
+            <DialogTitle>{name}에 멤버 초대하기</DialogTitle>
             <DialogDescription>
-              Use the code below to invite people to your workspace
+              초대 코드와 링크를 함께 공유해 상대가 쉽게 참여할 수 있어요.
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col gap-y-4 items-center justify-center py-10">
@@ -78,7 +78,7 @@ export const InviteModal = ({
               {joinCode}
             </p>
             <Button onClick={handleCopy} variant={"ghost"} size={"sm"}>
-              Copy Link
+              초대 링크 복사
               <CopyIcon className="size-4 ml-2" />
             </Button>
           </div>
@@ -88,11 +88,10 @@ export const InviteModal = ({
               onClick={handleNewCode}
               variant={"outline"}
             >
-              New code
-              <RefreshCcw className="size-4 ml-2" />
+              <RefreshCcw className="size-4 mr-2" /> 새 코드 생성
             </Button>
             <DialogClose asChild>
-              <Button>Close</Button>
+              <Button>닫기</Button>
             </DialogClose>
           </div>
         </DialogContent>

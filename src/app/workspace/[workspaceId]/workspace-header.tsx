@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { ChevronDown, ListFilter, SquarePen } from "lucide-react";
+import {
+  ChevronDown,
+  ListFilter,
+  Settings,
+  SquarePen,
+  UserPlus,
+  UserRoundPlus,
+} from "lucide-react";
 
 import { Hint } from "@/components/hint";
 import { Button } from "@/components/ui/button";
@@ -67,31 +74,32 @@ export const WorkspaceHeader = ({
               <>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
-                  className="cursor-pointer py-2"
+                  className="cursor-pointer py-2 flex justify-between"
                   onClick={() => setInviteOpen(true)}
                 >
-                  Invite people to {workspace.name}
+                  워크스페이스에 초대하기
+                  <UserRoundPlus />
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
-                  className="cursor-pointer py-2"
+                  className="cursor-pointer py-2 flex justify-between"
                   onClick={() => setPreferencesOpen(true)}
                 >
-                  Preferences
+                  워크스페이스 설정
+                  <Settings />
                 </DropdownMenuItem>
               </>
             )}
           </DropdownMenuContent>
         </DropdownMenu>
         <div className="flex items-center gap-0.5">
-          <Hint label="Filter conversations" side="bottom">
-            <Button variant={"transparent"} size={"iconSm"}>
-              <ListFilter className="size-4" />
-            </Button>
-          </Hint>
-          <Hint label="New message" side="bottom">
-            <Button variant={"transparent"} size={"iconSm"}>
-              <SquarePen className="size-4" />
+          <Hint label="초대하기" side="bottom">
+            <Button
+              onClick={() => setInviteOpen(true)}
+              variant={"transparent"}
+              size={"iconSm"}
+            >
+              <UserRoundPlus className="size-4" />
             </Button>
           </Hint>
         </div>

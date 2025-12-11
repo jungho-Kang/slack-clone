@@ -66,7 +66,7 @@ export const WorkspaceHeader = ({
               <div className="flex flex-col items-start">
                 <p className="font-bold">{workspace.name}</p>
                 <p className="text-xs text-muted-foreground">
-                  Active workspace
+                  현재 워크스페이스
                 </p>
               </div>
             </DropdownMenuItem>

@@ -59,9 +59,9 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
     <>
       <Card className="w-full h-full p-8">
         <CardHeader className="px-0 pt-0">
-          <CardTitle>Sign up to continue</CardTitle>
+          <CardTitle className="mb-1">지금 회원가입하고 시작하세요</CardTitle>
           <CardDescription>
-            Use your email or another service to continue
+            이름과 이메일로 간편하게 가입할 수 있습니다
           </CardDescription>
         </CardHeader>
         {!!error && (
@@ -76,14 +76,14 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
               disabled={pending}
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder={"Full name"}
+              placeholder={"이름"}
               required
             />
             <Input
               disabled={pending}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder={"Email"}
+              placeholder={"이메일"}
               type={"email"}
               required
             />
@@ -91,7 +91,7 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
               disabled={pending}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder={"Password"}
+              placeholder={"비밀번호"}
               type={"password"}
               required
             />
@@ -99,7 +99,7 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
               disabled={pending}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder={"Confirm password"}
+              placeholder={"비밀번호 확인"}
               type={"password"}
               required
             />
@@ -109,7 +109,7 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
               size={"lg"}
               disabled={pending}
             >
-              Continue
+              회원가입
             </Button>
           </form>
           <Separator />
@@ -122,7 +122,7 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
               className="w-full relative"
             >
               <FcGoogle className="size-5 absolute top-2.5 left-2.5" />
-              Continue with Google
+              Google로 로그인
             </Button>
             <Button
               disabled={pending}
@@ -132,16 +132,16 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
               className="w-full relative"
             >
               <FaGithub className="size-5 absolute top-2.5 left-2.5" />
-              Continue with Github
+              Github로 로그인
             </Button>
           </div>
           <p className="text-xs text-muted-foreground">
-            Already have an account?{" "}
+            이미 계정이 있으신가요?{" "}
             <span
               onClick={() => setState("signIn")}
               className="text-sky-700 hover:underline cursor-pointer font-semibold"
             >
-              Sign in
+              로그인
             </span>
           </p>
         </CardContent>

@@ -53,9 +53,9 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
     <>
       <Card className="w-full h-full p-8">
         <CardHeader className="px-0 pt-0">
-          <CardTitle>Login to continue</CardTitle>
+          <CardTitle className="mb-1">계속하려면 로그인하세요</CardTitle>
           <CardDescription>
-            Use your email or another service to continue
+            이메일 또는 다른 계정으로 로그인할 수 있습니다
           </CardDescription>
         </CardHeader>
         {!!error && (
@@ -70,7 +70,7 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
               disabled={pending}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder={"Email"}
+              placeholder={"이메일"}
               type={"email"}
               required
             />
@@ -78,7 +78,7 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
               disabled={pending}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder={"Password"}
+              placeholder={"비밀번호"}
               type={"password"}
               required
             />
@@ -88,7 +88,7 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
               size={"lg"}
               disabled={pending}
             >
-              Continue
+              로그인
             </Button>
           </form>
           <Separator />
@@ -101,7 +101,7 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
               className="w-full relative"
             >
               <FcGoogle className="size-5 absolute top-2.5 left-2.5" />
-              Continue with Google
+              Google로 로그인
             </Button>
             <Button
               disabled={pending}
@@ -111,16 +111,16 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
               className="w-full relative"
             >
               <FaGithub className="size-5 absolute top-2.5 left-2.5" />
-              Continue with Github
+              Github로 로그인
             </Button>
           </div>
           <p className="text-xs text-muted-foreground">
-            Don&apos;t have an account?{" "}
+            아직 계정이 없으신가요?{" "}
             <span
               onClick={() => setState("signUp")}
               className="text-sky-700 hover:underline cursor-pointer font-semibold"
             >
-              Sign up
+              지금 가입하기
             </span>
           </p>
         </CardContent>

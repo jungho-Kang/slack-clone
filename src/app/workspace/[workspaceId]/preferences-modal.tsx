@@ -100,17 +100,17 @@ export const PreferencesModal = ({
               <DialogTrigger asChild>
                 <div className="px-5 py-4 bg-white rounded-lg border cursor-pointer hover:bg-gray-50">
                   <div className="flex items-center justify-between">
-                    <p className="text-sm font-semibold">Workspace name</p>
+                    <p className="text-sm font-semibold">워크스페이스 이름</p>
                     <p className="text-sm text-[#1264a3] hover:underline font-semibold">
-                      Edit
+                      수정
                     </p>
                   </div>
-                  <p className="text-sm">{value}</p>
+                  <p className="text-sm mt-1">{value}</p>
                 </div>
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>
-                  <DialogTitle>Rename this workspace</DialogTitle>
+                  <DialogTitle>워크스페이스 이름 수정</DialogTitle>
                 </DialogHeader>
                 <form className="space-y-4" onSubmit={handleEdit}>
                   <Input
@@ -121,7 +121,7 @@ export const PreferencesModal = ({
                     autoFocus
                     minLength={3}
                     maxLength={80}
-                    placeholder="Workspace name e.g. 'Work', 'Personal', 'Home'"
+                    placeholder="워크스페이스 이름"
                   />
                   <DialogFooter>
                     <DialogClose asChild>
@@ -129,10 +129,10 @@ export const PreferencesModal = ({
                         variant={"outline"}
                         disabled={isUpdatingWorkspace}
                       >
-                        Cancel
+                        취소
                       </Button>
                     </DialogClose>
-                    <Button disabled={isUpdatingWorkspace}>Save</Button>
+                    <Button disabled={isUpdatingWorkspace}>저장</Button>
                   </DialogFooter>
                 </form>
               </DialogContent>
@@ -143,7 +143,7 @@ export const PreferencesModal = ({
               className="flex items-center gap-x-2 px-5 py-4 bg-white rounded-lg border cursor-pointer hover:bg-gray-50 text-rose-600"
             >
               <TrashIcon className="size-4" />
-              <p className="text-sm font-semibold">Delete workspace</p>
+              <p className="text-sm font-semibold mb-0.5">워크스페이스 삭제</p>
             </button>
           </div>
         </DialogContent>

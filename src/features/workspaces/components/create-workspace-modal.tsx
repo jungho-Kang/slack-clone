@@ -45,7 +45,7 @@ export const CreateWorkspaceModal = () => {
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Add a workspace</DialogTitle>
+          <DialogTitle>워크스페이스 추가</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input
@@ -58,7 +58,7 @@ export const CreateWorkspaceModal = () => {
             placeholder="Workspace name e.g. 'Work', 'Personal', 'Home'"
           />
           <div className="flex justify-end">
-            <Button disabled={isPending}>Create</Button>
+            <Button disabled={isPending}>생성</Button>
           </div>
         </form>
       </DialogContent>

@@ -31,8 +31,9 @@ export const CreateChannelModal = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // 공백을 "-"로 변경 ( 예시) test channel ===> test-channel )
-    const value = e.target.value.replace(/\s+/g, "-").toLowerCase();
-    setName(value);
+    // const value = e.target.value.replace(/\s+/g, "-").toLowerCase();
+    // setName(value);
+    setName(e.target.value);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -59,7 +60,7 @@ export const CreateChannelModal = () => {
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Add a channel</DialogTitle>
+          <DialogTitle>채널 추가</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input
@@ -70,10 +71,10 @@ export const CreateChannelModal = () => {
             autoFocus
             minLength={3}
             maxLength={80}
-            placeholder="e.g. plan-budget"
+            placeholder="새로운 채널"
           />
           <div className="flex justify-end">
-            <Button disabled={isPending}>Create</Button>
+            <Button disabled={isPending}>생성</Button>
           </div>
         </form>
       </DialogContent>

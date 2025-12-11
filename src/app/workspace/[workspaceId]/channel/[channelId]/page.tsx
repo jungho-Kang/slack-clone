@@ -47,7 +47,7 @@ const ChannelIdPage = () => {
         isLoadingMore={status === "LoadingMore"}
         canLoadMore={status === "CanLoadMore"}
       />
-      <ChatInput placeholder={`Message # ${channel.name}`} />
+      <ChatInput placeholder={`# ${channel.name}에 메시지 입력`} />
     </div>
   );
 };

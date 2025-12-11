@@ -53,8 +53,9 @@ export const Header = ({ title }: HeaderProps) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // 공백을 "-"로 변경 ( 예시) test channel ===> test-channel )
-    const value = e.target.value.replace(/\s+/g, "-").toLowerCase();
-    setValue(value);
+    // const value = e.target.value.replace(/\s+/g, "-").toLowerCase();
+    // setValue(value);
+    setValue(e.target.value);
   };
 
   const handleDelete = async () => {
@@ -116,10 +117,10 @@ export const Header = ({ title }: HeaderProps) => {
               <DialogTrigger asChild>
                 <div className="px-5 py-4 bg-white rounded-lg border cursor-pointer hover:bg-gray-50">
                   <div className="flex items-center justify-between">
-                    <p className="text-sm font-semibold">Channel name</p>
+                    <p className="text-sm font-semibold">채널 이름</p>
                     {member?.role === "admin" && (
                       <p className="text-sm text-[#1264a3] hover:underline font-semibold">
-                        Edit
+                        수정
                       </p>
                     )}
                   </div>
@@ -128,7 +129,7 @@ export const Header = ({ title }: HeaderProps) => {
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>
-                  <DialogTitle>Rename this channel</DialogTitle>
+                  <DialogTitle>채널 이름 수정</DialogTitle>
                 </DialogHeader>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <Input
@@ -139,15 +140,15 @@ export const Header = ({ title }: HeaderProps) => {
                     autoFocus
                     minLength={3}
                     maxLength={80}
-                    placeholder="e.g. plan-budget"
+                    placeholder="채널 이름"
                   />
                   <DialogFooter>
                     <DialogClose asChild>
                       <Button variant={"outline"} disabled={isUpdatingChannel}>
-                        Cancel
+                        취소
                       </Button>
                     </DialogClose>
-                    <Button disabled={isUpdatingChannel}>Save</Button>
+                    <Button disabled={isUpdatingChannel}>저장</Button>
                   </DialogFooter>
                 </form>
               </DialogContent>
@@ -159,7 +160,7 @@ export const Header = ({ title }: HeaderProps) => {
                 className="flex items-center gap-x-2 px-5 py-4 bg-white rounded-lg cursor-pointer border hover:bg-gray-50 text-rose-600"
               >
                 <TrashIcon className="size-4" />
-                <p className="text-sm font-semibold">Delete channel</p>
+                <p className="text-sm font-semibold pb-0.5">채널 삭제</p>
               </button>
             )}
           </div>

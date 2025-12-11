@@ -110,10 +110,11 @@ export const create = mutation({
       throw new Error("Unauthorized");
     }
 
-    const parsedName = args.name.replace(/\s+/g, "-").toLowerCase();
+    // const parsedName = args.name.replace(/\s+/g, "-").toLowerCase();
 
     const channelId = await ctx.db.insert("channels", {
-      name: parsedName,
+      // name: parsedName,
+      name: args.name,
       workspaceId: args.workspaceId,
     });
 

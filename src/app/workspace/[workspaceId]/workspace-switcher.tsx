@@ -44,9 +44,9 @@ export const WorkspaceSwitcher = () => {
           onClick={() => router.push(`/workspace/${workspaceId}`)}
           className="cursor-pointer flex-col justify-start items-start capitalize"
         >
-          {workspace?.name}
+          <p className="font-bold">{workspace?.name}</p>
           <span className="text-xs text-muted-foreground">
-            Active workspace
+            현재 워크스페이스
           </span>
         </DropdownMenuItem>
         {filteredWorkspaces?.map((workspace) => (
@@ -68,7 +68,7 @@ export const WorkspaceSwitcher = () => {
           <div className="size-9 overflow-hidden bg-[#F2F2F2] text-slate-800 font-semibold text-lg rounded-md flex items-center justify-center mr-2">
             <Plus />
           </div>
-          Create a new workspace
+          새 워크스페이스 생성
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

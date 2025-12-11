@@ -67,12 +67,12 @@ export const WorkspaceSidebar = () => {
       />
       <div className="flex flex-col px-2 mt-3 ml-2">
         {/* TODO */}
-        <SidebarItem label="Threads" icon={MessageSquareText} id="threads" />
+        <SidebarItem label="스레드" icon={MessageSquareText} id="threads" />
         {/* <SidebarItem label="Drafts & Sent" icon={SendHorizonal} id="drafts" /> */}
       </div>
       <WorkspaceSection
-        label="Channels"
-        hint="New channel"
+        label="채널"
+        hint="채널 생성"
         onNew={member.role === "admin" ? () => setOpen(true) : undefined}
       >
         {channels?.map((item) => (
@@ -86,8 +86,8 @@ export const WorkspaceSidebar = () => {
         ))}
       </WorkspaceSection>
       <WorkspaceSection
-        label="Direct Messages"
-        hint="New direct message"
+        label="다이렉트 메세지"
+        hint="DM 생성"
         // onNew={() => {}}
       >
         {members?.map((item) => (

@@ -91,7 +91,7 @@ export const Thread = ({ messageId, onClose }: ThreadProps) => {
         const url = await generateUploadUrl({}, { throwError: true });
 
         if (!url) {
-          throw new Error("Url not found");
+          throw new Error("입력하신 Url을 찾을 수 없습니다.");
         }
 
         const result = await fetch(url, {
@@ -101,7 +101,7 @@ export const Thread = ({ messageId, onClose }: ThreadProps) => {
         });
 
         if (!result.ok) {
-          throw new Error("Failed to upload image");
+          throw new Error("이미지 업로드에 실패하였습니다.");
         }
 
         const { storageId } = await result.json();
@@ -112,8 +112,8 @@ export const Thread = ({ messageId, onClose }: ThreadProps) => {
       await createMessgae(values, { throwError: true });
 
       setEditorKey((prevKey) => prevKey + 1);
-    } catch (error) {
-      toast.error(`Failed to send message ${error}`);
+    } catch {
+      toast.error("메세지 전송에 실패하였습니다.");
     } finally {
       setIsPending(false);
       editorRef?.current?.enable(true);
@@ -153,14 +153,16 @@ export const Thread = ({ messageId, onClose }: ThreadProps) => {
     return (
       <div className="h-full flex flex-col">
         <div className="h-[49px] flex justify-between items-center px-4 border-b">
-          <p className="text-lg font-bold">Thread</p>
+          <p className="text-lg font-bold">스레드</p>
           <Button onClick={onClose} size={"iconSm"} variant={"ghost"}>
             <XIcon className="size-5 stroke-[1.5]" />
           </Button>
         </div>
         <div className="flex flex-col gap-y-2 h-full items-center justify-center">
           <AlertTriangle className="size-5 text-muted-foreground" />
-          <p className="text-sm text-muted-foreground">Message not found</p>
+          <p className="text-sm text-muted-foreground">
+            아직 메시지가 없습니다.
+          </p>
         </div>
       </div>
     );
@@ -169,7 +171,7 @@ export const Thread = ({ messageId, onClose }: ThreadProps) => {
   return (
     <div className="h-full flex flex-col">
       <div className="h-[49px] flex justify-between items-center px-4 border-b">
-        <p className="text-lg font-bold">Thread</p>
+        <p className="text-lg font-bold">스레드</p>
         <Button onClick={onClose} size={"iconSm"} variant={"ghost"}>
           <XIcon className="size-5 stroke-[1.5]" />
         </Button>
@@ -267,7 +269,7 @@ export const Thread = ({ messageId, onClose }: ThreadProps) => {
           onSubmit={handleSubmit}
           innerRef={editorRef}
           disabled={isPending}
-          placeholder="Reply.."
+          placeholder="답글 입력"
         />
       </div>
     </div>

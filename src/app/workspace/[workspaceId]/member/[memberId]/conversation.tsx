@@ -53,7 +53,7 @@ export const Conversation = ({ id }: ConversationProps) => {
         canLoadMore={status === "CanLoadMore"}
       />
       <ChatInput
-        placeholder={`Message ${member?.user.name}`}
+        placeholder={`@${member?.user.name}에게 메시지 입력`}
         conversationId={id}
       />
     </div>

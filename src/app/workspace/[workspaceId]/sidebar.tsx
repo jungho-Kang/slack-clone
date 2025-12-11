@@ -14,11 +14,11 @@ export const Sidebar = () => {
       <WorkspaceSwitcher />
       <SidebarButton
         icon={Home}
-        label="Home"
+        label="홈"
         isActive={pathname.includes("/workspace")}
       />
       {/* TODO */}
-      <SidebarButton icon={MessageSquare} label="DMs" />
+      <SidebarButton icon={MessageSquare} label="DM" />
       {/* <SidebarButton icon={Bell} label="Activity" /> */}
       {/* <SidebarButton icon={MoreHorizontal} label="More" /> */}
       <div className="flex flex-col items-center justify-center gap-y-1 mt-auto">
